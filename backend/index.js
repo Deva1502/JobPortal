@@ -7,6 +7,16 @@ import userroute from "./routes/user.routes.js"
 import companyRoute from "./routes/company.route.js"
 import jobroute from "./routes/job.route.js"
 import application from "./routes/application.route.js"
+const express = require('express');
+const cors = require('cors');
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+app.use(cors());
+app.use(express.json());
+
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 dotenv.config({});
 const app = express();
