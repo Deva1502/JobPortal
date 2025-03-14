@@ -4,13 +4,14 @@ import { JOB_API_END_POINT } from '@/utils/constant'
 import axios from 'axios'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
+import { BACKEND_URL } from '@/utils/config'
 
 const useGetAllAdminJobs = () => {
     const dispatch = useDispatch();
     useEffect(()=>{
         const fetchAllAdminJobs = async () => {
             try {
-                const res = await axios.get(`http://localhost:3000/api/v1/job/getadminjobs`,{withCredentials:true});
+                const res = await axios.get(`${BACKEND_URL}/api/v1/job/getadminjobs`,{withCredentials:true});
                 // console.log("res",res.data);
                 if(res.data.success){
                     dispatch(setAllAdminJobs(res.data.jobs));
